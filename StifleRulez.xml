@@ -1,0 +1,141 @@
+<StifleRData xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+  <VersionInfo>
+    <Issuer>2Pint Software</Issuer>
+    <Version>2.3.0.0</Version>
+    <Date>10-12-2019</Date>
+  </VersionInfo>
+  <TypeData>
+    <Type TypeID="001" Match="Equals">Download StifleRulez File</Type> <!-- StifleR Rules Update-->
+    <Type TypeID="002" Match="URLContains">Express</Type> <!-- MS Express Update-->
+<!-- Generic Windows Downloads Section--> 
+    <Type TypeID="100" Match="Contains">Push Notification Platform Job</Type>
+    <Type TypeID="101" Match="Equals">WU Client Download</Type>   <!-- Windows Update-->
+    <Type TypeID="102" Match="Equals">Microsoft Store</Type> <!-- Microsoft Store - W10 DO Only-->
+    <Type TypeID="103" Match="Equals">UpdateBinary</Type><!-- MS OneDrive-->
+    <Type TypeID="103" Match="Equals">SetupBinary</Type><!-- MS OneDrive-->
+    <Type TypeID="104" Match="Equals">SpeechModelDownloadJob</Type>
+    <Type TypeID="105" Match="Equals">SkypeUpdate</Type>
+    <Type TypeID="106" Match="Equals">Setup Installer</Type>
+    <Type TypeID="107" Match="Equals">Font Download</Type>
+    <Type TypeID="108" Match="Contains">DMRCBitsJob</Type>
+    <Type TypeID="109" Match="Contains">Microsoft Outlook Offline Address Book</Type>
+    <Type TypeID="110" Match="Equals">Silverlight Updater</Type>
+    <Type TypeID="111" Match="URLContains">MicrosoftMaps</Type> <!-- MS Maps Update-->
+    <Type TypeID="112" Match="Equals">PreSignInSettingsConfigJSON</Type>
+    <Type TypeID="113" Match="Equals">Windows DLP Manager</Type>
+    <Type TypeID="114" Match="Equals">Microsoft Office Click-to-Run</Type>
+    
+    <!-- MS ConfigMgr Section-->
+    <Type TypeID="200" Match="Contains">CCMSETUP DOWNLOAD</Type> <!--CM Auto upgrade client job-->
+    <Type TypeID="201" Match="URLContains">SCCM_BranchCache$</Type> <!--All types of CM PeerCache transfers--> 
+    <Type TypeID="202" Match="URLContains">SCRIPTGUID</Type> <!-- CM Run SCript-->
+    <Type TypeID="203" Match="URLContains">sms_dcm</Type> <!-- CM Configuration Baseline Traffic-->
+    <Type TypeID="204" Match="URLContains">sms_pol</Type> <!-- ConfigMgr Policy Traffic-->
+    <Type TypeID="205" Match="Contains">CCM Message Upload</Type> <!-- ConfigMgr Inventory Upload-->
+
+    <Type TypeID="206" Match="Equals" WellConnected="1" UserInitiated="1" CCMDTSType="4" WinPE="1">CCMDTS Job</Type> <!--Task Sequence in WinPE : User Initiated Well Connected -->
+    <Type TypeID="256" Match="Equals" WellConnected="0" UserInitiated="1" CCMDTSType="4" WinPE="1">CCMDTS Job</Type> <!--Task Sequence in WinPE : User Initiated Low Bandwidth -->	  
+    <Type TypeID="207" Match="Equals" WellConnected="0" CCMDTSType="4" WinPE="1">CCMDTS Job</Type> <!--Task Sequence in WinPE : Required deployment-->
+    <Type TypeID="227" Match="Equals" WellConnected="1" CCMDTSType="4" WinPE="1">CCMDTS Job</Type>  <!--Task Sequence in WinPE : Required deployment-->
+
+    <Type TypeID="208" Match="Equals" UserInitiated="1" DownloadOnDemand="1" CCMDTSType="4">CCMDTS Job</Type> <!--Task Sequence in Full OS : User Initiated : Download on Demand-->
+    <Type TypeID="209" Match="Equals" DownloadOnDemand="1" CCMDTSType="4">CCMDTS Job</Type> <!--Task Sequence in Full OS : Required Deployment : Download on Demand -->
+    <Type TypeID="210" Match="Equals" UserInitiated="1" DownloadOnDemand="0" CCMDTSType="4">CCMDTS Job</Type> <!--Task Sequence in Full OS : User Initiated : Download  All B4 Execute -->
+    <Type TypeID="211" Match="Equals" DownloadOnDemand="0" CCMDTSType="4">CCMDTS Job</Type> <!--Task Sequence in Full OS : Required Deployment : Download  All B4 Execute -->
+	  
+    <Type TypeID="212" Match="Equals" UserInitiated="1" CCMDTSType="8">CCMDTS Job</Type> <!--Application/Virtual in Full OS : User Initiated -->
+    <Type TypeID="213" Match="Equals" CCMDTSType="8">CCMDTS Job</Type> <!--Application/Virtual in Full OS : Required Deployment -->	  
+    <Type TypeID="214" Match="Equals" UserInitiated="1" CCMDTSType="0">CCMDTS Job</Type> <!--Pkg/Program in Full OS : User Initiated -->
+    <Type TypeID="215" Match="Equals" CCMDTSType="0">CCMDTS Job</Type> <!--Pkg/Program in Full OS : Required Deployment --> 
+    <Type TypeID="216" Match="Equals" UserInitiated="1" CCMDTSType="5">CCMDTS Job</Type> <!-- Software Update in Full OS : User Initiated -->
+    <Type TypeID="217" Match="Equals" CCMDTSType="5">CCMDTS Job</Type> <!-- Software Update in Full OS : Required Deployment -->
+    <Type TypeID="218" Match="URLContains" Internet="1">windowsupdate.com</Type> <!-- CM Software Update in Full OS : From MS CDN -->
+
+<!-- All others Misc Section includes Internet based downloads and catch-all rules-->
+    <Type TypeID="300" Match="Contains">.crx</Type>
+    <Type TypeID="301" Match="Contains">chrome_installer.exe</Type>
+    <Type TypeID="301" Match="Contains">chrome_updater</Type>
+    <Type TypeID="301" Match="Equals">Chrome Component Updater</Type>
+    <Type TypeID="302" Match="Contains">ArmReaderJobsID</Type>
+    <Type TypeID="303" Match="URLContains" Internet="1">adobe.com</Type>
+    <Type TypeID="304" Match="Contains">DropboxClient</Type>
+    <Type TypeID="305" Match="Contains">GoogleEarth</Type>
+    <Type TypeID="306" Match="Equals">think-cell update</Type>
+    <Type TypeID="307" Match="Contains">GoogleUpdateSetup</Type>
+  
+ <!-- This should always be the last section - catch-all rules for anything that isn't detected above--> 
+    <Type TypeID="900" Match="SmallerThan" Internet="0">32768</Type>
+    <Type TypeID="901" Match="LargerThan" Internet="0">1073741824</Type>
+    <Type TypeID="902" Match="SmallerThan" Internet="1">32768</Type>
+    <Type TypeID="903" Match="LargerThan" Internet="1">1073741824</Type>
+    <Type TypeID="904" BranchCache="1" Internet="1" />
+    <Type TypeID="905" BranchCache="1" Internet="0" />
+    <Type TypeID="906" BranchCache="0" Internet="1" />
+    <Type TypeID="907" BranchCache="0" Internet="0" />
+
+ </TypeData><!-- ***** END OF TYPEDATA SECTION *****-->
+	
+  <DownloadTypes>
+    <Download TypeID="001"  StifleRPriority="100" Name="StifleR Rules Updater"/>
+    <Download TypeID="002"  StifleRPriority="100" Name="CM Express Update"/>
+    <Download TypeID="100"  StifleRPriority="3000" Name="Windows Platform"/>
+    <Download TypeID="101"  StifleRPriority="1100" Name="Windows Update"/>
+    <Download TypeID="102"  StifleRPriority="1000" Name="Microsoft Store"/>
+    <Download TypeID="103"  StifleRPriority="6000" Name="Microsoft OneDrive Update"/>
+    <Download TypeID="104"  StifleRPriority="6000" Name="Microsoft Speech Update"/>    
+    <Download TypeID="105"  StifleRPriority="6000" Name="Skype Updater"/>
+    <Download TypeID="106"  StifleRPriority="3000" Name="Windows Setup Installer"/>    
+    <Download TypeID="107"  StifleRPriority="6000" Name="Font Download" />
+    <Download TypeID="108"  StifleRPriority="3000" Name="Windows Device Management"/>
+    <Download TypeID="109"  StifleRPriority="100" Name="Microsoft Outlook OAB Sync" Bandwidth="1024" />
+    <Download TypeID="110"  StifleRPriority="3000" Name="Silverlight Updater"/>
+    <Download TypeID="111"  StifleRPriority="3000" Name="Microsoft Maps Update"/>
+    <Download TypeID="112"  StifleRPriority="3000" Name="OneDrive Settings"/>
+    <Download TypeID="113"  StifleRPriority="3000" Name="WIP Manager Update"/>
+    <Download TypeID="114"  StifleRPriority="3000" Name="Microsoft Office Click-to-Run"/>
+
+    <Download TypeID="200" StifleRPriority="1000" Name="CM Client Upgrade"/>
+    <Download TypeID="201" StifleRPriority="100" Name="CM Peer Cache P2P" />
+    <Download TypeID="202" StifleRPriority="100" Name="CM Run Script" />
+    <Download TypeID="203" StifleRPriority="100" Name="CM Configuration Baseline"/>
+    <Download TypeID="204" StifleRPriority="100" Name="CM Policy Download"/>
+    <Download TypeID="205" StifleRPriority="3000" Name="CM Inventory Upload"/>
+    <Download TypeID="206" StifleRPriority="900" Name="CM WinPE User TS" Bandwidth="512" />
+    <Download TypeID="256" StifleRPriority="100" Name="CM WinPE User TS Well Conn."/>
+    
+    <Download TypeID="207" StifleRPriority="900" Name="CM WinPE Required TS"/>
+    <Download TypeID="227" StifleRPriority="100" Name="CM WinPE Required TS WC"/>
+    
+    <Download TypeID="208" StifleRPriority="1000" Name="CM Available TS" Bandwidth="512" />
+    <Download TypeID="209" StifleRPriority="1000" Name="CM Required TS"/>
+    <Download TypeID="210" StifleRPriority="1000" Name="CM Available TS" Bandwidth="512" />
+    <Download TypeID="211" StifleRPriority="1000" Name="CM Required TS"/>
+    <Download TypeID="212" StifleRPriority="1000" Name="CM Available Application"  />
+    <Download TypeID="213" StifleRPriority="2000" Name="CM Required Application" />
+    <Download TypeID="214" StifleRPriority="1000" Name="CM Available Package"  />
+    <Download TypeID="215" StifleRPriority="2000" Name="CM Required Package" />
+    <Download TypeID="216" StifleRPriority="1000" Name="CM Available Update"  />
+    <Download TypeID="217" StifleRPriority="1000" Name="CM Required Update" />
+    <Download TypeID="218" StifleRPriority="1000" Name="CM Update Microsoft CDN" />	  
+	  
+    <Download TypeID="300" StifleRPriority="3000" Name="Google Chrome Update" Bandwidth="512"  />
+    <Download TypeID="301" StifleRPriority="3000" Name="Google Chrome Update" Bandwidth="512"  />
+    <Download TypeID="302" StifleRPriority="3000" Name="Adobe Updater" Bandwidth="512" />
+    <Download TypeID="303" StifleRPriority="3000" Name="Adobe Updater" Bandwidth="512" />
+    <Download TypeID="304" StifleRPriority="3000" Name="Dropbox Update" Bandwidth="512" />
+    <Download TypeID="305" StifleRPriority="3000" Name="Google Earth Installer" Bandwidth="512" />
+    <Download TypeID="306" StifleRPriority="3000" Name="Think Cell Update" Bandwidth="512" />
+    <Download TypeID="307" StifleRPriority="3000" Name="Google Update Setup" Bandwidth="512" />
+
+
+    <Download TypeID="900" StifleRPriority="2000" Name="Small Internal Prio 2" Bandwidth="64"  />
+    <Download TypeID="901" StifleRPriority="3000" Name="Large Internal Prio 3" Bandwidth="64"  />
+    <Download TypeID="902" StifleRPriority="2000" Name="Small Internet Prio 2" Bandwidth="128"  />
+    <Download TypeID="903" StifleRPriority="3000" Name="Large Internet Prio 3" Bandwidth="256"  />
+    <Download TypeID="904" StifleRPriority="2000" Name="BranchCache External" Bandwidth="64"  />
+    <Download TypeID="905" StifleRPriority="2000" Name="BranchCache Internal" Bandwidth="64"  />
+    <Download TypeID="906" StifleRPriority="3000" Name="Non-BranchCache External" Bandwidth="128"  />
+    <Download TypeID="907" StifleRPriority="3000" Name="Non-BranchCache Internal" Bandwidth="256"  />	  
+	  
+  </DownloadTypes>
+</StifleRData>
